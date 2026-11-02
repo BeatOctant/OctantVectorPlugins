@@ -20,22 +20,11 @@
 | `whisper/` | `octantvector-whisper` | `whisper_language`（歌の言語。歌のある箇所の言語の割合） | MIT（モデルはモデルカードでは Apache-2.0） |
 | `siglip/` | `octantvector-siglip` | `siglip_cover`（カバー画像） | MIT（モデルはモデルカードでは Apache-2.0） |
 
-リポジトリ全体のライセンスはありません。直下の `LICENSE` は各フォルダの LICENSE への案内です。
-
 `vocal_` のビューは Demucs で分けた歌声を使うので、`[vocal]` 付きで入れます（`octantvector[vocal]` が入ります）。
-
-## 組み合わせる版
-
-支えるのは、各部品の最新の版どうしの組み合わせだけです（[decisions.md の全体と段階](https://github.com/BeatOctant/OctantSpecs/blob/main/decisions.md#全体と段階)、2026-10-22）。この README を書いた時点の相手は次のとおりです。
-
-| 相手 | 版 | つなぐもの |
-| --- | --- | --- |
-| OctantVector | v0.12.1（各パッケージの範囲は `>=0.12.0,<0.13`） | `octantvector.plugin`（`PLUGIN_API` 0.3） |
-| OctantHarvest（プラグインで DB を作る） | 最新 | OctantVector を通して呼ばれる |
 
 ## プラグイン API は不安定です
 
-プラグインは `octantvector.plugin` だけを使います（`PLUGIN_API` 0.3。OctantVector 0.8 系のもの）。この API はまだ固まっておらず、変わるたびに `PLUGIN_API` の番号が上がります。各パッケージは書かれた番号を `OCTANTVECTOR_PLUGIN_API` に持ち、OctantVector の番号と違うと読み込まれません（そのビューを頼んだときに理由が出ます）。OctantVector を上げたら、同じ番号のプラグインに上げてください。
+プラグインは `octantvector.plugin` だけを使います。この API はまだ固まっておらず、変わるたびに `PLUGIN_API` の番号が上がります。各パッケージは書かれた番号を `OCTANTVECTOR_PLUGIN_API` に持ち、OctantVector の番号と違うと読み込まれません（そのビューを頼んだときに理由が出ます）。OctantVector とプラグインは、どちらも最新の版どうしで使ってください。
 
 各ビューは、モデルの出所と条件を `credits` に持ちます。OctantVector が DB を書くとき、マニフェストのそのビューの `credits` に入ります（ボーカルのビューには Demucs の分も足されます）。
 
@@ -51,7 +40,7 @@ pip install "octantvector-whisper @ git+https://github.com/BeatOctant/OctantVect
 pip install "octantvector-siglip @ git+https://github.com/BeatOctant/OctantVectorPlugins#subdirectory=siglip"
 ```
 
-このリポジトリにはまだ版のタグがないので、main から入れます。入れるとエントリポイント `octantvector.encoders` で OctantVector に登録されます。
+main から入れます。入れるとエントリポイント `octantvector.encoders` で OctantVector に登録されます。
 
 ## モデルのファイル
 
@@ -66,7 +55,7 @@ python -m venv .venv
 .venv/bin/python -m pytest -q clap/tests mert/tests wavlm/tests whisper/tests siglip/tests
 ```
 
-テストはネットワークにも本物の重みにも触れません。小さな設定でランダムに初期化したモデルを一時的な `models_dir` に置き、OctantVector 0.3 の時代（`PLUGIN_API` の 0.3 とは別の、OctantVector 本体の古い版）の計算（テストに写してあります）と同じベクトルになることを確かめます。歌声のビューは分離器を決まった偽物に替えて、クリップの切り方・歌声のある曲の判定・平均の取り方を比べます。`whisper_language` と `siglip_cover` は 0.3 の時代の計算がないので、小さなモデルで形と決まり（切り出す位置、言語なしにする条件、言語の割合、正規化）を確かめます。本物の重みでの値は、開発用の PC で Spike（2026-10-19）の値と比べます。
+テストはネットワークにも本物の重みにも触れません。小さな設定でランダムに初期化したモデルを一時的な `models_dir` に置き、決まった計算と同じベクトルになるか、形と決まり（切り出す位置、歌声の判定、正規化など）が合うかを確かめます。本物の重みでの値は、開発用の PC で確かめます。
 
 ### CI
 
@@ -74,14 +63,4 @@ python -m venv .venv
 
 ## ライセンス
 
-パッケージ（フォルダ）ごとに違います。リポジトリの直下には LICENSE がありません。
-
-| フォルダ | ライセンス |
-|---|---|
-| `clap/` | [MIT](clap/LICENSE) |
-| `mert/` | [CC BY-NC 4.0](mert/LICENSE)（非営利。モデルのコードの写しを含むため。[NOTICE](mert/NOTICE)） |
-| `wavlm/` | [MIT](wavlm/LICENSE) |
-| `whisper/` | [MIT](whisper/LICENSE) |
-| `siglip/` | [MIT](siglip/LICENSE) |
-
-モデルの重みの条件は、上の表とモデルカードを見てください。
+パッケージ（フォルダ）ごとに違い、リポジトリ全体のライセンスはありません。各フォルダの LICENSE と、上の表を見てください（`mert/` は非営利の CC BY-NC 4.0 で、[NOTICE](mert/NOTICE) があります）。モデルの重みの条件はモデルカードを見てください。

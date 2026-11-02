@@ -1,4 +1,4 @@
-"""Whisper large-v3 view for OctantVector, through octantvector.plugin (PLUGIN_API 0.3).
+"""Whisper large-v3 view for OctantVector, through octantvector.plugin.
 
   whisper_language  the languages sung in the song (role language): over Whisper's 100 language tokens, the share of
                     the sung windows in each language, L2-normed (norm "none"). Two maps sung in one same language

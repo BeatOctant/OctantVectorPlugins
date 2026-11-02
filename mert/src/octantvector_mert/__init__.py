@@ -1,4 +1,4 @@
-"""MERT-v1-95M views for OctantVector, through octantvector.plugin (PLUGIN_API 0.3).
+"""MERT-v1-95M views for OctantVector, through octantvector.plugin.
 
   mert_v1_95m        the mix: time-mean of the outputs of encoder layers 4-8, averaged over the layers and 3 clips of 10 s
   vocal_mert_v1_95m  the same on the clips' vocal stem (role vocal): singing style and timbre

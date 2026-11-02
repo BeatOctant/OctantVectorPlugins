@@ -1,4 +1,4 @@
-"""LAION CLAP (HTS-AT, unfused) views for OctantVector, through octantvector.plugin (PLUGIN_API 0.3).
+"""LAION CLAP (HTS-AT, unfused) views for OctantVector, through octantvector.plugin.
 
   clap_htsat_unfused        the mix: mean of the L2-normed embeddings of 3 clips of 10 s
   vocal_clap_htsat_unfused  the same model on the clips' vocal stem (role vocal): the kind of voice, also reachable

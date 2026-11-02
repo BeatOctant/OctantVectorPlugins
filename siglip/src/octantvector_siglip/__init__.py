@@ -1,4 +1,4 @@
-"""SigLIP so400m view for OctantVector, through octantvector.plugin (PLUGIN_API 0.3).
+"""SigLIP so400m view for OctantVector, through octantvector.plugin.
 
   siglip_cover  the map's cover image (role cover): SigLIP's image embedding (the attention-pooled head), L2-normed.
                 The view keeps the plain cosine (norm "none"): covers that are the same picture stay near 1.

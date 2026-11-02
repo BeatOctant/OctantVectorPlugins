@@ -1,4 +1,4 @@
-"""WavLM speaker-verification view for OctantVector, through octantvector.plugin (PLUGIN_API 0.3).
+"""WavLM speaker-verification view for OctantVector, through octantvector.plugin.
 
   vocal_wavlm_sv  x-vector of the clips' vocal stem (role vocal): the voice itself; mean of the L2-normed clip vectors
 
