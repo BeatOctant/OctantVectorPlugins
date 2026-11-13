@@ -28,7 +28,7 @@ def test_registered_through_the_entry_point():
 
 def test_declarations():
     clap, vocal, concepts = plug.Clap(), plug.VocalClap(), plug.ClapConcepts()
-    assert (clap.id, clap.dim, clap.role_name(), clap.version) == ("clap_htsat_unfused", 512, "music", "1")
+    assert (clap.id, clap.dim, clap.role_name(), clap.version) == ("clap_htsat_unfused", 512, "music", "2")
     assert (vocal.id, vocal.dim, vocal.role_name(), vocal.batch, vocal.clip_s) == (
         "vocal_clap_htsat_unfused", 512, "vocal", 8, 7.8)
     assert (concepts.id, concepts.dim, concepts.role_name(), concepts.kind) == ("clap_concepts", 58, "genre", "derived")

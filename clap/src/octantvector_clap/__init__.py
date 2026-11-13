@@ -46,6 +46,7 @@ def load_processor(folder):
 @register
 class Clap(ClipAudioEncoder):
     id = "clap_htsat_unfused"
+    version = "2"  # 2: songs read with ffmpeg (OctantVector 0.14)
     dim = 512
     sr = 48000
     l2_clips = True
@@ -80,6 +81,7 @@ class VocalClap(Clap):
 @register
 class ClapConcepts(DerivedEncoder):
     id = "clap_concepts"
+    version = "2"  # 2: its source clap_htsat_unfused@2
     inputs = ("view:clap_htsat_unfused",)
     role = "genre"
     models = (CLAP,)  # the text side of the same model

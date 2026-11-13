@@ -10,10 +10,10 @@ readme = "README.md"
 requires-python = ">=3.11.4"  # OctantVector's (tarfile extraction filters)
 license = "MIT"
 license-files = ["LICENSE"]
-dependencies = ["octantvector>=0.13.0,<0.14", "transformers>=4.45", "torch>=2.6"]
+dependencies = ["octantvector>=0.14.0,<0.15", "transformers>=4.45", "torch>=2.6"]
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "octantvector[embed]>=0.13.0,<0.14"]  # embed: soxr for resampling the window
+dev = ["pytest>=8", "octantvector[embed]>=0.14.0,<0.15"]  # embed: soxr for resampling the window
 
 [project.entry-points."octantvector.encoders"]
 whisper = "octantvector_whisper"

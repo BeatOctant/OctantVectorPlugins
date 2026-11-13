@@ -18,6 +18,7 @@ MERT = Model("m-a-p/MERT-v1-95M", "12af15fef9d0ac838c3f475bfbbf26d2060dd4f5",
 @register
 class Mert95(HiddenMean):
     id = "mert_v1_95m"
+    version = "2"  # 2: songs read with ffmpeg (OctantVector 0.14)
     dim = 768
     sr = 24000
     layers = (4, 5, 6, 7, 8)

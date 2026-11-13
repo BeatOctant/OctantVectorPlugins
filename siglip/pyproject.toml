@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11.4"  # OctantVector's (tarfile extraction filters)
 license = "MIT"
 license-files = ["LICENSE"]
-dependencies = ["octantvector>=0.13.0,<0.14", "transformers>=4.45", "torch>=2.6", "pillow>=10"]
+dependencies = ["octantvector>=0.14.0,<0.15", "transformers>=4.45", "torch>=2.6", "pillow>=10"]
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]

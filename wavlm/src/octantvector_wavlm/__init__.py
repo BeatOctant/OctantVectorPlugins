@@ -17,6 +17,7 @@ WAVLM = Model("microsoft/wavlm-base-plus-sv", "feb593a6c23c1cc3d9510425c29b0a14d
 @register
 class VocalWavlm(ClipAudioEncoder):
     id = "vocal_wavlm_sv"
+    version = "2"  # 2: songs read with ffmpeg (OctantVector 0.14)
     dim = 512
     sr = 16000
     l2_clips = True

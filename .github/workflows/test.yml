@@ -15,7 +15,7 @@ permissions:
   contents: read
 env:
   # The OctantVector release the tests run against: a tag (or, before the tag, a commit) inside the packages' range
-  OCTANTVECTOR_TAG: v0.13.4
+  OCTANTVECTOR_TAG: v0.14.2
 jobs:
   test:
     runs-on: ubuntu-latest

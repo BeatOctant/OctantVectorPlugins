@@ -67,6 +67,7 @@ def shares(tops, dim):
 @register
 class WhisperLanguage(AudioEncoder):
     id = "whisper_language"
+    version = "2"  # 2: songs read with ffmpeg (OctantVector 0.14)
     dim = 100
     sr = 16000
     norm = "none"
